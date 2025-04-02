@@ -1,0 +1,46 @@
+<div class="ft-wrapper">
+    <div class="d-flex align-items-stretch justify-content-around flex-wrap">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Fund Transfer</h5>
+
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="mb-3">
+                        <label for="beneficiary" class="form-label">Beneficiary <sup class="text-danger">*</sup> </label>
+                        <select
+                            type="text"
+                            id="beneficiary"
+                            class="form-control"
+                            formControlName="beneficiary"
+                            placeholder="Enter beneficiary name"
+                        >
+                        <option value="">Select Beneficiary</option>
+                        <option *ngFor="let beneficiary of beneficiaryList" [value]="beneficiary.value">
+                            {{ beneficiary.label }}
+                        </option>
+                        </select>
+                        <div *ngIf="form.get('beneficiary')?.invalid && form.get('beneficiary')?.touched" class="text-danger">
+                            Beneficiary is required.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Amount <sup class="text-danger">*</sup></label>
+                        <input
+                            type="number"
+                            id="amount"
+                            class="form-control"
+                            formControlName="amount"
+                            placeholder="Enter amount"
+                        />
+                        <div *ngIf="form.get('amount')?.invalid && form.get('amount')?.touched" class="text-danger">
+                            <div *ngIf="form.get('amount')?.errors?.['required']">Amount is required.</div>
+                            <div *ngIf="form.get('amount')?.errors?.['min']">Amount should not be zero</div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Transfer</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

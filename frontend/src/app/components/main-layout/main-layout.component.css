@@ -1,0 +1,36 @@
+
+.app-nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.profile-area {
+    height: 30px;
+    width: 30px;
+    border: 1px solid;
+    border-radius: 15px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+ .profile-dropdown {
+    background-color: var(--bs-primary);
+}
+
+.profile-dropdown .dropdown-item {
+    color: var(--bs-white);
+}
+
+.profile-dropdown .dropdown-item:hover {
+    background-color: var(--bs-info)
+}
+
+.wrapper {
+    margin-top: 60px;
+}

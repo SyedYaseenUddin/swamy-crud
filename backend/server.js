@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const jwt = require('jsonwebtoken');
+
 const moment = require('moment');
 const multer = require('multer');
 const dotenv = require('dotenv');
@@ -22,9 +22,6 @@ app.use(express.json());
 
 // Database connection
 createTables(); // Call the function to create tables
-dispatcher(app);
-
-
 
 
 // Multer storage configuration
@@ -39,25 +36,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage }); 
 
-// JWT secret
-const JWT_SECRET = process.env.JWT_SECRET;
 
-// Authentication middleware
-const authenticateToken = (req, res, next) => { 
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
-
-    if (!token) return res.sendStatus(401);
-
-    jwt.verify(token, JWT_SECRET, (err, user) => {  
-        if (err) return res.sendStatus(403);
-        req.user = user;
-        next();
-    });
-};
 
 // Routes   
-
+dispatcher(app);
 
 // start the server
 app.listen(port, () => {

@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4" style="width: 25rem;">
+        <h3 class="card-title text-center mb-4">Login</h3>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" formControlName="username" placeholder="Enter your username" />
+            <div *ngIf="form.get('username')?.invalid && form.get('username')?.touched" class="text-danger">
+                Username is required.
+            </div>
+            </div>
+            <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password" />
+            <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="text-danger">
+                Password is required.
+            </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid || loading">{{loading ? 'Loading...' : 'Login'}}</button>
+        </form>
+        <div class="text-center mt-3">
+            <a [routerLink]="'/register'" class="text-decoration-none">Don't have an account? Register</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<button routerLink="/amount-transfer">test</button>
+<nav class="app-nav-bar navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/">MyApp</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+            </ul>
+            <ul class="navbar-nav">
+                <div class="btn-group" dropdown>
+                    <a dropdownToggle class="dropdown-toggle dropdown-toggle-split d-flex" aria-controls="profile-dropdown">
+                      <div class="profile-area">{{profileText}}</div>
+                </a>
+                    <ul id="profile-dropdown" *dropdownMenu class="dropdown-menu dropdown-menu-right profile-dropdown"
+                        role="menu" >
+                      <li role="menuitem"><a class="dropdown-item" href="#">Setting</a></li>
+                      <li class="divider dropdown-divider"></li>
+                      <li role="menuitem"><a class="dropdown-item" role="link" href="javascript:void(0)" (click)="onLogout()">Logout</a>
+                      </li>
+                    </ul>
+                  </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container-fluid wrapper">
+    <router-outlet/>
+</main>
