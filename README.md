@@ -11,7 +11,7 @@ Node 22 + Angular 19
     ```bash
        npm install
     ```
-3. Add create a .env file inside `backend` folder
+3. Create a .env file inside `backend` folder
     ```bash
     JWT_SECRET=your_jwt_secret
     JWT_EXPIRATION=6h
