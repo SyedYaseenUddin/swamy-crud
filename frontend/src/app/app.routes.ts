@@ -1,13 +1,20 @@
 import { Routes } from '@angular/router';
+import { activeGuardGuard } from './utility/active-guard.guard';
 
 export const routes: Routes = [
     {
         path: 'login',
-        loadComponent: () => import('./components/login/login.component').then(c => c.LoginComponent)
+        loadComponent: () => import('./components/login/login.component').then(c => c.LoginComponent),
+        canActivate: [
+            activeGuardGuard
+        ]
     },
     {
         path: 'register',
-        loadComponent: () => import('./components/register/register.component').then(c => c.RegisterComponent)
+        loadComponent: () => import('./components/register/register.component').then(c => c.RegisterComponent),
+        canActivate: [
+            activeGuardGuard
+        ]
     },
     {
         path : '',
@@ -26,6 +33,9 @@ export const routes: Routes = [
                 loadComponent: () => import('./components/home/home.component').then(c => c.HomeComponent),
                 pathMatch: 'full'
             },
+        ],
+        canActivate: [
+            activeGuardGuard
         ]
     }
 ];

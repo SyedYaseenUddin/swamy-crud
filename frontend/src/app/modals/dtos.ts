@@ -33,8 +33,8 @@ export interface TransactionResponse {
 };
 
 export interface WalletResponse {
-    balance: number;
-    transaction: TransactionResponse;
+    balance: number | null;
+    transaction: TransactionResponse | null;
 }
 
 export interface HistoryResponse {

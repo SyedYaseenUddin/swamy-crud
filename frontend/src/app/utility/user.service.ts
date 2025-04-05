@@ -23,8 +23,13 @@ export class UserService {
     this.setUserDetails(jwtDecode(token) as User);
     this.router.navigate(['/'])
   }
+
+  getToken() {
+    return this.storage.getItem('token');
+  }
   
   logout() {
+    this.user = null;
     this.storage.removeItem('token');
     this.router.navigate(['/login'])
   }
